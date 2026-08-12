@@ -186,6 +186,10 @@ a { color: inherit; text-decoration: none; }
   margin: 0 0 32px;
 }
 .hero-text--center { margin-left: auto; margin-right: auto; text-align: center; }
+.hero-text--nowrap { max-width: none; }
+@media (min-width: 900px) {
+  .hero-text--nowrap { white-space: nowrap; }
+}
 
 .btn {
   display: inline-flex;
