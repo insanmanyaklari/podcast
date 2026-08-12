@@ -1,0 +1,432 @@
+/* ==========================================================================
+   İNSAN MANYAKLARI — tokens
+   ink on newsprint, one acid-green flare, retro-OS window chrome.
+   Palette sampled straight from the artwork.
+   ========================================================================== */
+:root {
+  --paper: #ECE7DA;
+  --paper-2: #E2DCCA;
+  --ink: #141310;
+  --ink-70: rgba(20, 19, 16, 0.7);
+  --ink-45: rgba(20, 19, 16, 0.45);
+  --acid: #8FC425;
+  --acid-deep: #5C8412;
+  --line: rgba(20, 19, 16, 0.16);
+
+  --f-display: 'Anton', 'Archivo', sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --f-body: 'Archivo', sans-serif;
+
+  --wrap: 1200px;
+  --gutter: clamp(20px, 5vw, 64px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* subtle paper grain, fixed, never blocks interaction */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(rgba(20,19,16,0.05) 1px, transparent 1px),
+    radial-gradient(rgba(20,19,16,0.04) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+a.btn:focus-visible,
+.link-card:focus-visible { outline-color: var(--ink); }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 3px solid var(--ink);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-family: var(--f-display);
+  font-size: clamp(18px, 2.6vw, 24px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.logo span { color: var(--acid-deep); -webkit-text-stroke: 0.6px var(--ink); }
+
+.main-nav {
+  display: flex;
+  gap: clamp(18px, 3vw, 40px);
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+.main-nav a {
+  position: relative;
+  padding-bottom: 2px;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -2px;
+  height: 2px;
+  background: var(--acid-deep);
+  transition: right 0.25s ease;
+}
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after { right: 0; }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 3px solid var(--ink);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .main-nav.is-open { max-height: 200px; }
+  .main-nav a { padding: 16px var(--gutter); border-top: 1px solid var(--line); }
+  .menu-toggle { display: flex; }
+}
+
+/* ==========================================================================
+   Ticker / marquee band — reused as a structural device: every section
+   opens with a scrolling strip, echoing the torn "headline" banners
+   in the artwork.
+   ========================================================================== */
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 10px 0;
+  margin-bottom: clamp(28px, 5vw, 56px);
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 18s linear infinite;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  color: var(--ink-70);
+}
+
+.ticker--band {
+  border-top: none;
+  border-bottom: none;
+  background: var(--acid);
+  padding: 22px 0;
+  margin-bottom: 0;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.ticker--band .ticker-track {
+  font-family: var(--f-display);
+  font-size: clamp(20px, 3.4vw, 34px);
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  animation-duration: 26s;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero { padding-top: clamp(28px, 5vw, 48px); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  padding-bottom: clamp(48px, 7vw, 88px);
+}
+
+.hero-title {
+  font-family: var(--f-display);
+  font-size: clamp(48px, 8vw, 92px);
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  margin: 0 0 24px;
+}
+
+.hero-text {
+  font-size: clamp(16px, 1.6vw, 18px);
+  color: var(--ink-70);
+  max-width: 46ch;
+  margin: 0 0 32px;
+}
+.hero-text--center { margin-left: auto; margin-right: auto; text-align: center; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 16px 30px;
+  border: 2px solid var(--ink);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--acid);
+  color: var(--ink);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hero-art {
+  position: relative;
+  isolation: isolate;
+}
+.hero-art img {
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--acid-deep);
+}
+
+/* washi-tape corner accents, purely decorative */
+.tape {
+  position: absolute;
+  width: 84px;
+  height: 26px;
+  background: var(--acid);
+  border: 1.5px solid var(--ink);
+  opacity: 0.92;
+  z-index: 2;
+}
+.tape-tl { top: -12px; left: 24px; transform: rotate(-6deg); }
+.tape-br { bottom: -12px; right: 24px; transform: rotate(5deg); }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { order: -1; }
+}
+
+/* ==========================================================================
+   Manifesto marquee section
+   ========================================================================== */
+.manifesto { margin: clamp(48px, 7vw, 88px) 0; }
+
+/* ==========================================================================
+   Section title (shared)
+   ========================================================================== */
+.section-title {
+  font-family: var(--f-display);
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 0.95;
+  margin: 0 0 24px;
+}
+.section-title--center { text-align: center; margin-left: auto; margin-right: auto; }
+
+/* ==========================================================================
+   Contact / tip line
+   ========================================================================== */
+.contact { padding: clamp(48px, 7vw, 88px) 0; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+}
+
+@media (max-width: 820px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Retro-OS window card — the signature element, lifted directly from the
+   "ROI" / "enerji · kahve" chrome windows in the poster art. */
+.window-card {
+  border: 2.5px solid var(--ink);
+  background: var(--paper-2);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.window-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 12px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.window-controls { display: flex; gap: 6px; }
+.window-controls i {
+  width: 10px; height: 10px;
+  background: var(--acid);
+  display: inline-block;
+  border: 1px solid var(--paper);
+}
+.window-body {
+  padding: clamp(24px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.window-label {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ink-45);
+}
+.window-email {
+  font-family: var(--f-mono);
+  font-size: clamp(17px, 2.4vw, 21px);
+  border-bottom: 2px solid var(--acid-deep);
+  padding-bottom: 4px;
+  word-break: break-all;
+}
+.window-email:hover { color: var(--acid-deep); }
+
+/* ==========================================================================
+   Socials
+   ========================================================================== */
+.socials { padding: clamp(48px, 7vw, 88px) 0 clamp(64px, 9vw, 112px); text-align: center; }
+
+.link-grid {
+  list-style: none;
+  margin: clamp(32px, 5vw, 56px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 2px solid var(--ink);
+  border-left: 2px solid var(--ink);
+}
+.link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 24px clamp(18px, 3vw, 32px);
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2.6vw, 28px);
+  letter-spacing: 0.01em;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.link-card:hover, .link-card:focus-visible {
+  background: var(--ink);
+  color: var(--acid);
+}
+.link-index {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--ink-45);
+}
+.link-card:hover .link-index { color: var(--acid); opacity: 0.7; }
+.link-arrow { font-size: 18px; }
+
+@media (max-width: 560px) {
+  .link-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  border-top: 3px solid var(--ink);
+  padding: 26px 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.footer-tagline { color: var(--acid); }
