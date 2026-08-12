@@ -11,21 +11,19 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/hero-landscape.webp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0D0C">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- noise / paper texture overlay -->
-<div class="grain" aria-hidden="true"></div>
-
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#top" class="logo">İNSAN<span>MANYAKLARI</span></a>
+    <a href="#top" class="logo"><span class="logo-dot" aria-hidden="true"></span>İNSAN MANYAKLARI</a>
     <nav class="main-nav" aria-label="Ana menü">
       <a href="#biz">BİZ</a>
       <a href="#iletisim">İLETİŞİM</a>
@@ -42,18 +40,16 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <div class="ticker" role="presentation">
-          <div class="ticker-track">
-            <span>PODCAST&nbsp;/&nbsp;İŞ HAYATI&nbsp;/&nbsp;KAOS ARŞİVİ&nbsp;/&nbsp;</span>
-            <span>PODCAST&nbsp;/&nbsp;İŞ HAYATI&nbsp;/&nbsp;KAOS ARŞİVİ&nbsp;/&nbsp;</span>
-          </div>
-        </div>
+        <p class="eyebrow">PODCAST / İŞ HAYATI / KAOS ARŞİVİ</p>
 
-        <h1 class="hero-title">UMARIM<br>İK'NIZ<br>DİNLEMEZ</h1>
+        <h1 class="hero-title">UMARIM İK'NIZ DİNLEMEZ</h1>
 
         <p class="hero-text">İş hayatının tuhaf hikâyelerini, toplantı artığı travmaları ve kurumsal saçmalıkları birlikte kurcalıyoruz. Biz anlatıyoruz; siz "aa aynı bizim şirket" diyorsunuz.</p>
 
-        <a class="btn btn-primary" href="https://open.spotify.com" target="_blank" rel="noopener">DİNLEMEYE BAŞLA</a>
+        <a class="btn btn-primary" href="https://open.spotify.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          DİNLEMEYE BAŞLA
+        </a>
       </div>
 
       <div class="hero-art">
@@ -62,42 +58,28 @@
           <source media="(max-width: 980px)" srcset="assets/hero-square.webp">
           <img src="assets/hero-landscape.webp" alt="İnsan Manyakları — kalem ve dosyalı iki karakterin yer aldığı siyah-beyaz punk zine kolajı, ROI hesap makinesi ve enerji/kahve göstergesi pencereleriyle." width="1672" height="941" loading="eager" fetchpriority="high">
         </picture>
-        <span class="tape tape-tl" aria-hidden="true"></span>
-        <span class="tape tape-br" aria-hidden="true"></span>
       </div>
     </div>
   </section>
 
-  <!-- MANIFESTO MARQUEE -->
-  <section class="manifesto" id="biz">
-    <div class="ticker ticker--band" role="presentation">
-      <div class="ticker-track">
-        <span>"NORMAL" DİYE BİR ŞEY YOK. SADECE İYİ PAZARLANMIŞ KAOS VAR. — İNSAN MANYAKLARI&nbsp;&nbsp;★&nbsp;&nbsp;</span>
-        <span>"NORMAL" DİYE BİR ŞEY YOK. SADECE İYİ PAZARLANMIŞ KAOS VAR. — İNSAN MANYAKLARI&nbsp;&nbsp;★&nbsp;&nbsp;</span>
-        <span>"NORMAL" DİYE BİR ŞEY YOK. SADECE İYİ PAZARLANMIŞ KAOS VAR. — İNSAN MANYAKLARI&nbsp;&nbsp;★&nbsp;&nbsp;</span>
+  <!-- QUOTE + CONTACT -->
+  <section class="quote-contact" id="biz">
+    <div class="wrap qc-grid">
+      <div class="quote-card">
+        <span class="quote-star" aria-hidden="true">✳</span>
+        <p class="quote-text">"NORMAL" DİYE BİR ŞEY YOK. SADECE İYİ PAZARLANMIŞ KAOS VAR.</p>
+        <span class="quote-attr">— İnsan Manyakları</span>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT / TIP LINE -->
-  <section class="contact" id="iletisim">
-    <div class="wrap contact-grid">
-      <div class="contact-copy">
-        <h2 class="section-title">GIYBET<br>TEK KİŞİ<br>YAPILMAZ</h2>
+      <div class="contact-copy" id="iletisim">
+        <h2 class="section-title">GIYBET TEK KİŞİ YAPILMAZ</h2>
         <p class="hero-text">Bir hikâyen, bir itirazın ya da sadece "benim patron da aynısını yaptı" cümlen varsa gönder gelsin.</p>
-      </div>
 
-      <div class="window-card" role="group" aria-label="İhbar hattı">
-        <div class="window-titlebar">
-          <span class="window-title">ihbar_hatti.exe</span>
-          <span class="window-controls" aria-hidden="true">
-            <i></i><i></i><i></i>
-          </span>
-        </div>
-        <div class="window-body">
-          <span class="window-label">İHBAR HATTI</span>
-          <a class="window-email" href="mailto:info@insanmanyaklari.com">info@insanmanyaklari.com</a>
-          <a class="btn btn-ghost" href="mailto:info@insanmanyaklari.com">MAİL GÖNDER</a>
+        <div class="contact-box">
+          <div>
+            <span class="contact-label">İHBAR HATTI</span>
+            <a class="contact-email" href="mailto:info@insanmanyaklari.com">info@insanmanyaklari.com</a>
+          </div>
         </div>
       </div>
     </div>
@@ -106,36 +88,40 @@
   <!-- SOCIALS -->
   <section class="socials">
     <div class="wrap">
-      <h2 class="section-title section-title--center">FREE FRIDAY GİBİ<br>SOSYALLEŞELİM</h2>
-      <p class="hero-text hero-text--center">Bize ulaşabileceğiniz tüm linkler aşağıdadır, çünkü mail ekine eklemeyi unutmak is so 2000's.</p>
+      <h2 class="section-title">FREE FRIDAY GİBİ SOSYALLEŞELİM</h2>
+      <p class="hero-text">Bize ulaşabileceğiniz tüm linkler aşağıdadır, çünkü mail ekine eklemeyi unutmak is so 2000's.</p>
 
-      <ul class="link-grid">
+      <ul class="link-row">
         <li>
-          <a href="https://open.spotify.com" target="_blank" rel="noopener" class="link-card">
-            <span class="link-index">01</span>
-            <span class="link-name">Spotify</span>
-            <span class="link-arrow" aria-hidden="true">↗</span>
+          <a href="https://open.spotify.com" target="_blank" rel="noopener" class="link-pill">
+            SPOTIFY
+            <span class="link-badge">
+              <svg viewBox="0 0 24 24" fill="#0B0D0C" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.44a.62.62 0 0 1-.86.21c-2.36-1.44-5.33-1.77-8.83-.97a.63.63 0 1 1-.28-1.23c3.83-.88 7.12-.5 9.76 1.12.3.19.39.58.21.87zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.7-1.66-6.82-2.14-10.02-1.17a.78.78 0 1 1-.45-1.5c3.65-1.11 8.19-.57 11.28 1.34.37.23.49.72.26 1.07zm.11-2.83c-3.24-1.92-8.6-2.1-11.7-1.16a.94.94 0 1 1-.55-1.8c3.56-1.08 9.47-.87 13.2 1.35a.94.94 0 0 1-.95 1.61z"/></svg>
+            </span>
           </a>
         </li>
         <li>
-          <a href="https://music.apple.com" target="_blank" rel="noopener" class="link-card">
-            <span class="link-index">02</span>
-            <span class="link-name">Apple Music</span>
-            <span class="link-arrow" aria-hidden="true">↗</span>
+          <a href="https://music.apple.com" target="_blank" rel="noopener" class="link-pill">
+            APPLE MUSIC
+            <span class="link-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0B0D0C" stroke-width="2" aria-hidden="true"><path d="M9 18V6l12-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </span>
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="link-card">
-            <span class="link-index">03</span>
-            <span class="link-name">Instagram</span>
-            <span class="link-arrow" aria-hidden="true">↗</span>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="link-pill">
+            INSTAGRAM
+            <span class="link-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0B0D0C" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            </span>
           </a>
         </li>
         <li>
-          <a href="mailto:info@insanmanyaklari.com" class="link-card">
-            <span class="link-index">04</span>
-            <span class="link-name">Mail</span>
-            <span class="link-arrow" aria-hidden="true">↗</span>
+          <a href="mailto:info@insanmanyaklari.com" class="link-pill">
+            MAIL
+            <span class="link-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0B0D0C" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
           </a>
         </li>
       </ul>
