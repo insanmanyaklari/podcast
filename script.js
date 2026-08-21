@@ -15,3 +15,15 @@ if (toggle && nav) {
     });
   });
 }
+
+// Logo marquee — duplicate the <li> items once so the CSS animation loops seamlessly.
+// Only maintain ONE set of <li> items in index.html; this clones them automatically.
+const logoTrack = document.querySelector('.logo-track');
+if (logoTrack) {
+  const items = Array.from(logoTrack.children);
+  items.forEach((item) => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    logoTrack.appendChild(clone);
+  });
+}
